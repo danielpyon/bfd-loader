@@ -15,6 +15,7 @@ public:
         SYM_TYPE_UKN = 0,
         SYM_TYPE_FUNC = 1
     };
+
     Symbol() : type(SYM_TYPE_UKN), name(), addr(0) {}
 
     SymbolType type;
@@ -30,9 +31,9 @@ public:
         SEC_TYPE_DATA = 2
     };
     Section() : binary(NULL), type(SEC_TYPE_NONE), vma(0), size(0), bytes(NULL) {}
-    
+
     bool contains(uint64_t addr) {
-        return (addr >= vma) && (addr-vma < size);
+        return (addr >= vma) && (addr - vma < size);
     }
 
     Binary *binary;
@@ -51,6 +52,7 @@ public:
         BIN_TYPE_ELF = 1,
         BIN_TYPE_PE = 2
     };
+
     enum BinaryArch {
         ARCH_NONE = 0,
         ARCH_X86 = 1
